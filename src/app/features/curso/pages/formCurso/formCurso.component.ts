@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-curso',
@@ -17,9 +17,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class FormCursoComponent implements OnInit {
 
   public cursoForm!: FormGroup;
-
   private formBuilder = inject(FormBuilder);
 
+  public submitted = false;
 
   ngOnInit() {
     this.cursoForm = this.formBuilder.group({
@@ -31,4 +31,18 @@ export class FormCursoComponent implements OnInit {
       ]
     })
   }
+
+  public onSubmit() {
+    this.submitted = true;
+
+    if (this.cursoForm.valid) {
+      console.log('Http POST será chamado')
+    }
+  }
+
+  public onCancel() {
+    this.submitted = false;
+    this.cursoForm.reset()
+  }
+
 }
