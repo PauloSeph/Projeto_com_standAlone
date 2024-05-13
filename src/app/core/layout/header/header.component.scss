@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  grid-column: 1 / 13;
+  grid-row: 1;
+  background-color: rgb(44, 40, 40);
+  justify-content: space-around ;
+}
+
+.container {
+  display: flex;
+}
+
+div {
+  padding: 10px;
+
+  a {
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    padding: 15px 25px;
+    background-color: rgb(63, 124, 216);
+    cursor: pointer;
+  }
+}
+
