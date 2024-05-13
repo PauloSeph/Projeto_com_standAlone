@@ -1,0 +1,31 @@
+@if (cursos$ | async; as novo;){
+<table>
+  <thead>
+    <th>#</th>
+    <th>Curso</th>
+    <th>Actions</th>
+  </thead>
+
+  <tbody>
+    @for (item of novo; track item) {
+    <tr>
+      <td>{{ item.nome }}</td>
+      <td>{{ item.preco }}</td>
+
+      <td>
+        <span>
+          <button>Atualizar</button>
+          <button>Remover</button>
+        </span>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+} @else if (erro){
+<div>Erro ao carregar cursos</div>
+
+} @else {
+<span> Carregando cursos </span>
+}

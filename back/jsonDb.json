@@ -1,0 +1,21 @@
+{
+  "curso": [
+    {
+      "id": 1,
+      "nome": "Angular",
+      "preco": 100.0
+    },
+    {
+      "id": 2,
+      "nome": "Javascript",
+      "preco": 80.0
+    },
+    {
+      "id": 3,
+      "nome": "React",
+      "preco": 50.0
+    }
+  ]
+}
+
+
