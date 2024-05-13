@@ -1,17 +1,20 @@
-<form class="form" [formGroup]="cursoForm">
+<form class="form" [formGroup]="cursoForm" (ngSubmit)="onSubmit()">
 
+  <h1>Cadastrar Curso</h1>
   <div>
-    <label for="nome"></label>
+    <label for="nome">Nome</label>
     <input id="nome" type="text" formControlName="nome">
   </div>
 
   <div>
-    <label for="preco"></label>
+    <label for="preco">Preço</label>
     <input id="preco" type="text" formControlName="preco">
   </div>
 
+  <div class="actions">
+    <button type="submit">Salvar</button>
+
+    <button (click)="onCancel()">Cancelar</button>
+  </div>
+
 </form>
-
-
-
-

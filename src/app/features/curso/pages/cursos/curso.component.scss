@@ -1,7 +1,9 @@
-table, td, thead{
+table,
+td,
+thead {
   border: 1px solid rgb(45, 186, 221);
   padding: 18px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-collapse: collapse;
 }
 
@@ -15,9 +17,6 @@ thead {
     font-weight: 800;
   }
 }
-
-
-
 
 button {
   margin-left: 10px;

@@ -4,10 +4,10 @@ import { HomeComponent } from './features/home/home.component';
 import { FormCursoComponent } from './features/curso/pages/formCurso/formCurso.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'curso/cadastrar', component: FormCursoComponent },
+  { path: 'curso/detalhes', component: CursoComponent },
 
 
-  { path: 'curso', component: CursoComponent},
-  { path: 'curso/cadastrar', component: FormCursoComponent}
 ];
