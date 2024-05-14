@@ -1,6 +1,8 @@
-export interface ICurso{
+export interface ICurso {
   nome: string,
   preco: number
 }
+
+
 
 

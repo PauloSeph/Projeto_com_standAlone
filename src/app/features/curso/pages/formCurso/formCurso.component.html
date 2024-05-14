@@ -3,12 +3,28 @@
   <h1>Cadastrar Curso</h1>
   <div>
     <label for="nome">Nome</label>
-    <input id="nome" type="text" formControlName="nome">
+    <input
+      id="nome"
+      type="text"
+      formControlName="nome"
+      [ngClass]="addClassError('nome')"
+    />
+    @if (verificValidAndTouched('nome')) {
+    <div class="">Informe o nome do curso</div>
+    }
   </div>
 
   <div>
     <label for="preco">Preço</label>
-    <input id="preco" type="text" formControlName="preco">
+    <input
+      id="preco"
+      type="text"
+      formControlName="preco"
+      [ngClass]="addClassError('preco')"
+    />
+    @if (verificValidAndTouched('preco')) {
+    <div class="">Informe o nome do curso</div>
+    }
   </div>
 
   <div class="actions">
@@ -16,5 +32,4 @@
 
     <button (click)="onCancel()">Cancelar</button>
   </div>
-
 </form>

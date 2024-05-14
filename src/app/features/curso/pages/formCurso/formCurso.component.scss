@@ -5,7 +5,7 @@
 form {
   border: 1px solid rgb(209, 207, 207);
   padding: 15px;
-  width: 25%;
+  width: 18%;
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -30,6 +30,16 @@ form {
   justify-content: space-around;
 
   button {
+    background-color: rgb(17, 17, 15);
+    color: white;
+    border: 1px solid white;
     padding: 8px;
+    &:active {
+      border: 1px solid rgb(49, 238, 49);
+    }
   }
+}
+
+.error {
+  border: 1px solid red;
 }
