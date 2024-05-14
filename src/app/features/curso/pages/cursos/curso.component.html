@@ -1,31 +1,47 @@
-@if (cursos$ | async; as novo;){
-<table>
-  <thead>
-    <th>#</th>
-    <th>Curso</th>
-    <th>Actions</th>
-  </thead>
+<div class="container">
 
-  <tbody>
-    @for (item of novo; track item) {
-    <tr>
-      <td>{{ item.nome}}</td>
-      <td>{{ item.preco}}</td>
+  <section>
+    <h2>Cursos</h2>
 
-      <td>
-        <span>
-          <button>Atualizar</button>
-          <button>Remover</button>
-        </span>
-      </td>
-    </tr>
+    <div class="menuCurso">
+      <button>Novo Curso</button>
+      <button (click)="onRefresh()">Atualizar</button>
+    </div>
+  </section>
+
+
+
+  @if (cursos$ | async; as novo;){
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Curso</th>
+        <th>Actions</th>
+      </thead>
+
+      <tbody>
+        @for (item of novo; track item) {
+        <tr>
+          <td>{{ item.nome}}</td>
+          <td>{{ item.preco}}</td>
+
+          <td>
+            <span class="action">
+              <button>Editar</button>
+              <button>Remover</button>
+            </span>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+    } @else if (erro){
+    <div>Erro ao carregar cursos</div>
+
+    } @else {
+    <span> Carregando cursos </span>
     }
-  </tbody>
-</table>
 
-} @else if (erro){
-<div>Erro ao carregar cursos</div>
+</div>
 
-} @else {
-<span> Carregando cursos </span>
-}

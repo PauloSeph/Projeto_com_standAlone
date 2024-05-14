@@ -21,7 +21,8 @@ export class CursoComponent implements OnInit {
 
   constructor(private curso: CursoService) { }
 
-  ngOnInit(): void {
+
+  getData(){
     this.cursos$ = this.curso.get()
     .pipe(
       catchError(
@@ -31,6 +32,14 @@ export class CursoComponent implements OnInit {
         }
       )
     )
+  }
+
+  ngOnInit(): void {
+    this.getData()
+  }
+
+  public onRefresh() {
+    this.getData()
   }
 
 }
