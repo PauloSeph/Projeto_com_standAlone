@@ -12,7 +12,7 @@ export class CursoService {
 
   constructor(private http: HttpClient) {}
 
-  public get () {
+  public get() {
     return this.http.get<ICurso[]>(`${this.API}curso`).pipe(
       delay(1000)
     )
