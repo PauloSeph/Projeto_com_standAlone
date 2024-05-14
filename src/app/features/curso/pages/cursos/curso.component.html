@@ -4,7 +4,8 @@
     <h2>Cursos</h2>
 
     <div class="menuCurso">
-      <button>Novo Curso</button>
+      <button routerLink="/curso/cadastrar">Novo Curso</button>
+
       <button (click)="onRefresh()">Atualizar</button>
     </div>
   </section>
@@ -27,7 +28,7 @@
 
           <td>
             <span class="action">
-              <button>Editar</button>
+              <button (click)="onEdit(item.id)" >Editar</button>
               <button>Remover</button>
             </span>
           </td>

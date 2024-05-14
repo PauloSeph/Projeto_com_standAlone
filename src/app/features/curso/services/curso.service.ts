@@ -14,10 +14,10 @@ export class CursoService {
   constructor(private http: HttpClient) {}
 
   public get() {
-
-    return this.http.get<ICurso[]>(this.API).pipe(
-      delay(1000)
-    )
+    return this.http.get<ICurso[]>(this.API)
+    // .pipe(
+    //   delay(1000)
+    // )
   }
 
   public create (dados: any) {
