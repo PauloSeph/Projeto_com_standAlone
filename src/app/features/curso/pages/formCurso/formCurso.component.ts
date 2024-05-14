@@ -1,3 +1,4 @@
+import { CursoService } from './../../services/curso.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { inject } from '@angular/core';
@@ -19,7 +20,8 @@ import {
 })
 export class FormCursoComponent implements OnInit {
   public cursoForm!: FormGroup;
-  private formBuilder = inject(FormBuilder);
+  private formBuilder: FormBuilder = inject(FormBuilder);
+  private cursoService: CursoService = inject (CursoService)
 
   public submitted = false;
 
@@ -40,8 +42,15 @@ export class FormCursoComponent implements OnInit {
   public onSubmit() {
     this.submitted = true;
 
-    if (this.cursoForm.invalid) {
-      console.log('Tem erro, requisição nao será chamada');
+    if (this.cursoForm.valid) {
+
+      this.cursoService.create(this.cursoForm.value).subscribe(
+        {
+          next: (value) => console.log("sucesso"),
+          error: (value) => console.log("erro"),
+          complete: () => console.log("Requisição completa"),
+        }
+      )
     }
   }
 

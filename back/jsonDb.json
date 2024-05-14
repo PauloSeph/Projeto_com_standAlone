@@ -1,21 +1,34 @@
 {
   "curso": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Angular",
-      "preco": 100.0
+      "preco": 100
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Javascript",
-      "preco": 80.0
+      "preco": 80
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "React",
-      "preco": 50.0
+      "preco": 50
+    },
+    {
+      "id": "9430",
+      "nome": "Testando",
+      "preco": "12.3"
+    },
+    {
+      "id": "3964",
+      "nome": "Novo",
+      "preco": "123"
+    },
+    {
+      "id": "460e",
+      "nome": "Testando",
+      "preco": "12.3"
     }
   ]
 }
-
-
