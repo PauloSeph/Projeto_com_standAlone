@@ -1,5 +1,5 @@
 export class CursoResponse {
-  public id!: number;
+  public id!: any;
   public nome?: string;
   public preco?: number;
 }

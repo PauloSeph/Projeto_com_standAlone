@@ -1,5 +1,5 @@
 export interface ICurso {
-  id: number,
+  id: any,
   nome: string,
   preco: number
 }
