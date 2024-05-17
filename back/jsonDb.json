@@ -29,6 +29,46 @@
       "id": "460e",
       "nome": "Testando",
       "preco": "12.3"
+    },
+    {
+      "id": "d656",
+      "nome": "Angular",
+      "preco": 100
+    },
+    {
+      "id": "e631",
+      "nome": "assa",
+      "preco": "12.3"
+    },
+    {
+      "id": "97a8",
+      "nome": "Angular",
+      "preco": 100
+    },
+    {
+      "id": "b84b",
+      "nome": "Angular",
+      "preco": 100
+    },
+    {
+      "id": "0cc4",
+      "nome": "Angular",
+      "preco": 100
+    },
+    {
+      "id": "464f",
+      "nome": "Husn",
+      "preco": "23"
+    },
+    {
+      "id": "1105",
+      "nome": "Koen",
+      "preco": "213"
+    },
+    {
+      "id": "660a",
+      "nome": "asea",
+      "preco": "21321"
     }
   ]
 }

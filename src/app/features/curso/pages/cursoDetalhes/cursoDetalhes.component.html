@@ -1,0 +1,56 @@
+<div class="container">
+
+  <section>
+    <h2>Cursos</h2>
+
+    <div class="menuCurso">
+      <button routerLink="cadastrar">Novo Curso</button>
+      <button (click)="onRefresh()">Atualizar</button>
+    </div>
+  </section>
+
+
+
+  @if (cursos$ | async; as novo;){
+  <table>
+    <thead>
+      <!-- Table Row -->
+      <tr>
+        <th>#</th>
+        <th>Curso</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (item of novo; track item) {
+      <tr>
+        <td>{{ item.nome}}</td>
+        <td>{{ item.preco}}</td>
+
+        <td>
+          <span class="action">
+            <button (click)="onEdit(item.id)">Editar</button>
+            <button (click)="onDelete(item.id)" >Remover</button>
+          </span>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Criar um Modal para editar e adicionar um Registro
+    Com a lógica de atributo com estado de editar ou não, por exemplo modal = false
+    e quando for editar chamar o botão e passar a ser true exibindo assim o elemento
+    POPUP (modal).
+  -->
+
+
+  } @else if (erro){
+  <div>Erro ao carregar cursos</div>
+
+  } @else {
+  <span> Carregando cursos </span>
+  }
+
+</div>

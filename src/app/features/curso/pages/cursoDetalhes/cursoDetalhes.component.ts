@@ -1,24 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
 import { Observable, catchError, throwError } from 'rxjs';
-import { CursoService } from '../../services/curso.service';
 import { ICurso } from '../../models/Icurso';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterModule,
-} from '@angular/router';
+import { CursoService } from '../../services/curso.service';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { CursoResponse } from '../../models/cursoResponse';
 
 @Component({
-  selector: 'app-curso',
+  selector: 'app-curso-detalhes',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
-  templateUrl: './curso.component.html',
-  styleUrl: './curso.component.scss',
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
+  templateUrl: './cursoDetalhes.component.html',
+  styleUrl: './cursoDetalhes.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CursoComponent implements OnInit {
-  public cursos$?: Observable<ICurso[]>;
+export class CursoDetalhesComponent {
+  public cursos$?: Observable<CursoResponse[]>;
   // public erro$ = new Subject<boolean>();
   public erro?: boolean;
 
@@ -39,6 +40,7 @@ export class CursoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('test 2')
     this.getData();
   }
 
@@ -46,9 +48,14 @@ export class CursoComponent implements OnInit {
     this.getData();
   }
 
+  onDelete(id: number) {
+    console.log(id)
+    // falta implementar
+  }
+
+
+  // navegacao para rota com ID
   public onEdit(id: number) {
-    this.router.navigate(
-      ['curso', 'editar', id]
-  );
-}
-}
+    this.router.navigate(['curso', 'editar', id]);
+  }
+ }
