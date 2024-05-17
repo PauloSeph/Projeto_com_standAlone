@@ -20,7 +20,7 @@ export class CursoService {
     // )
   }
 
-  public getById(id: string) {
+  public getById(id: any) {
     return this.http.get(`${this.API}/${id}`)
     .pipe(
       take(1)
@@ -35,5 +35,30 @@ export class CursoService {
   }
 
 
+  public atualizar(id: any, curso: any, ) {
+    return this.http.put(`${this.API}/${id}`, curso).pipe(
+      take(1)
+    )
+  }
+
+  public deletar() {
+
+  }
+
+
+
+  public save(id: any, curso: any) {
+    if (id) {
+      return this.atualizar(id, curso)
+    } else {
+      return this.create(curso)
+    }
+  }
+
+
+  remove (id: any) {
+    return this.http.delete(`${this.API}/${id}`).pipe(take(1))
+
+  }
 
 }

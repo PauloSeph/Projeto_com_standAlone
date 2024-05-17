@@ -29,6 +29,10 @@ export class FormCursoComponent implements OnInit {
   private route: ActivatedRoute = inject(ActivatedRoute);
   public submitted = false;
 
+  // implementar a lógica, se for PUT usamos atualizar, se nao cadastrar.
+  public cadastrarOuAtualizar = "Cadastrar"
+
+
   /* ### não precisamais desse codigo já que temos resolve ###  */
 
   // Método para popular formulario
@@ -60,6 +64,9 @@ export class FormCursoComponent implements OnInit {
 
   // Método chamado quando botão de submit é chamado
   // irá fazer a requisicao POST com os valores.
+
+
+
   public onSubmit() {
 
     this.submitted = true;
@@ -67,14 +74,33 @@ export class FormCursoComponent implements OnInit {
     if (this.cursoForm.valid) {
       console.log('Submit')
 
-      // Alternativa
-      // let id = this.route.snapshot.paramMap.get('id')
+      // let msgSucesso = 'Curso Criado com sucesso';
+      // let msgErro = 'Erro ao Criar curso, tente novamente';
 
-      // Alternativa
-      let curso = this.route.snapshot.data['curso'];
+      let curso = this.route.snapshot.data['curso']; //  Alternativa para obter ID = let id = this.route.snapshot.paramMap.get('id')
+
+      // if (curso.id) {
+      //   let msgSucesso = 'Curso Atualizado com sucesso';
+      //   let msgErro = 'Erro ao Atualizar curso, tente novamente';
+      // }
+
+      // this.cursoService.save(curso.id, this.cursoForm.value).subscribe(
+      //   {
+      //     next: (value) => this.cursoForm.reset(),
+      //     error: (value) => console.log(msgErro),
+      //     complete: () => console.log('Requisição feita')
+      //   }
+      // )
+
+
+
 
       if (curso.id) {
-        console.log('update')
+        this.cursoService.atualizar(curso.id, this.cursoForm.value).subscribe(
+          resposta => {
+            console.log('Update realizado')
+          }
+        )
       } else {
         this.cursoService.create(this.cursoForm.value).subscribe(
           {
@@ -86,6 +112,9 @@ export class FormCursoComponent implements OnInit {
       }
     }
   }
+
+
+
 
 
 

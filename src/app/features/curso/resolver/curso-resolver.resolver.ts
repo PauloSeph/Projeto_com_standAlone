@@ -8,7 +8,7 @@ export const cursoResolver: ResolveFn<boolean> = (
   state: RouterStateSnapshot): Observable<any> => {
 
   if (route.params['id']) {
-    let id = route.paramMap.get('id')!
+    let id = route.paramMap.get('id');
     return inject(CursoService).getById(id);
   }
 

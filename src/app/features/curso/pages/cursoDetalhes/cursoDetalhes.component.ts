@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ICurso } from '../../models/Icurso';
 import { CursoService } from '../../services/curso.service';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
 import { CursoResponse } from '../../models/cursoResponse';
 
 @Component({
@@ -22,7 +22,7 @@ export class CursoDetalhesComponent {
   public cursos$?: Observable<CursoResponse[]>;
   // public erro$ = new Subject<boolean>();
   public erro?: boolean;
-
+  public route = inject(ActivatedRoute);
   private router: Router = inject(Router);
   private curso: CursoService = inject(CursoService);
 
@@ -48,14 +48,29 @@ export class CursoDetalhesComponent {
     this.getData();
   }
 
-  onDelete(id: number) {
-    console.log(id)
-    // falta implementar
+  onDelete(id: any) {
+    this.curso.remove(id).subscribe(
+      {
+        next: (sucess) => {
+          alert('Removido')
+        },
+        error: (err) => { console.log('erro') }
+      }
+    )
+
+
   }
 
 
   // navegacao para rota com ID
-  public onEdit(id: number) {
-    this.router.navigate(['curso', 'editar', id]);
+  public onEdit(id: any) {
+    console.log(id);
+    this.router.navigate(
+      ['editar', id],
+      {
+        relativeTo: this.route
+      }
+
+    );
   }
- }
+}
